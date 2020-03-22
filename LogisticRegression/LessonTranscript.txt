@@ -1,0 +1,307 @@
+Now let's move R up to the value of 3.1
+
+Now we're going to see something slightly different.
+
+Ok. So I'm going to 'go' several times
+
+and what you're going to see is
+
+instead of settling down at a fixed point,
+
+you're going to see an oscillation
+
+between two different values
+
+when x sub t is .558 x sub (t+1) is .7646
+
+Now if I click go again, those two values switch.
+
+And so on and so on forever.
+
+This is called a periodic attractor with the period two.
+
+It's called period 2 because it repeats itself every two time steps.
+
+Now I need to define another term for you
+
+which is the term "state."
+
+The state of the system, in this case, is defined as
+
+a value for x sub t and x sub t+1. That is a point on this graph
+
+That's a state of the system.
+
+So what you can see is, if you watch the point on the graph,
+
+the system is oscillating between two different states.
+
+So this is called a periodic attractor of period 2.
+
+Now, suppose I move R up to 3.2
+
+Set up. Go. And I keep clicking on Go.
+
+What I'm going to see
+
+is again, this same kind of oscillating dynamics
+
+but the exact points that the dot is oscillating between
+
+are different than for the previous value of R.
+
+So this system, with R set to 3.2,
+
+has the same kind of dynamics, the same
+
+kind of periodic dynamics with period two
+
+but the exact values of those two states
+
+that it oscillates between are different than for 3.1
+
+Now let's move R to 3.50
+
+and Go. And we'll see, actually, a different kind of behavior
+
+when the system finally settles down
+
+What we're going to see
+
+is an oscillation, but this time
+
+it turns out that the oscillation is between four different states of the system, not two.
+
+So let me see if I can see that by looking at the blue dot
+
+One. Two. Three. Four.
+
+One. Two. Three. Four.
+
+It's repeating itself.
+
+So this is a periodic attractor with period 4.
+
+So the period has doubled.
+
+And, if you kept doing this -- moving R up by small amounts --
+
+you would find, at some point, the period would double again
+
+that we'd get a period eight attractor
+
+and then a period sixteen attractor
+
+and then a period thirty two attractor
+
+and so on and so on until finally
+
+we reach a state that
+
+we no longer have a periodic attractor any more.
+
+So we can see this when we move R to the extreme
+
+case of 4. And I'll set up and go.
+
+And what you'll see is that the system
+
+starts looking quite random.
+
+So if your growth rate is 4, it turns out that
+
+when you start iterating the system,
+
+it becomes very hard to predict
+
+what the state of the system is going to be
+
+at a later time step without actually running the system
+
+through the whole set of iterations.
+
+So it doesn't settle down into any obvious ordered pattern.
+
+Instead, as it turns out, this is an example of chaos.
+
+Now remember earlier I said that chaos means
+
+sensitive dependence on initial conditions.
+
+So we can see how that works by opening the model called
+
+sensitivedependence.nlogo
+
+This is a model that is similar to our previous model
+
+except it allows us to see the effects of sensitive dependence
+
+on initial conditions by letting us plot two initial conditions and their dynamics.
+
+So here I have R = 4, x0=.2 as before, but now I have another x0
+
+an x zero prime.
+
+So you can think of this as a new initial condition
+
+that's going to be run simultaneously
+
+with this other initial condition although
+
+they're not affecting one another.
+
+Each one is just obeying the mathematics of the logistics map.
+
+And I've set them almost equal. The only difference is that
+
+x0' has a one out in the fifth decimal place.
+
+So when I do 'set up'
+
+you actually see that there's a red dot,
+
+which represents this x0'
+
+and a blue dot, which represents x0.
+
+But the blue dot is being hidden
+
+because it is exactly under the red dot
+
+because they are almost equal.
+
+And the value here, .64, for time step one
+
+is almost equal to the value for time step one over here.
+
+So let's do Go and you can see the two points travel together.
+
+You still can't see the blue point
+
+In this chaotic way... but after a number of time steps
+
+here only sixteen, they start to separate.
+
+And you can see, when I plot this out a little bit more,
+
+Look at this plot here.
+
+The blue plot and the red plot start to be very different
+
+and end up looking very uncorrelated.
+
+So what this is showing is that, even if we start out with very similar initial conditions, almost equal
+
+after some number of time steps,
+
+the behavior of these two different systems
+
+will look very, very different.
+
+Now suppose we didn't know that there was a .1 out here in the fifth decimal place.
+
+That's very possible.
+
+And we were scientists trying to make a prediction
+
+Well, should we predict that the system is going to end up here?
+
+or end up here?
+
+after forty four time steps?
+
+Well it's impossible to know and that's echoing that quotation from Poincare
+
+which said, "prediction becomes impossible."
+
+The significance of this example was stated very eloquently
+
+by the biologist Robert May in 1976 in his paper on the logistic map
+
+when he says, "the fact that the simple and deterministic
+
+equation (that is the logistic map) can possess dynamical trajectories
+
+which look like some random noise, has disturbing practical implications.
+
+It means, for example, that apparently erratic fluctuations
+
+in the census data for an animal population
+
+need not necessarily betoken either the vararies of an
+
+unpredictable environment or sampling errors,
+
+they may simply derive from a rigidly deterministic
+
+population growth relationship." (That is the logistic map).
+
+"Alternatively, it may be observed that in the chaotic regime"
+
+(in our case, this was with R = 4) "arbitrarily close initial conditions can lead to trajectories which,
+
+after a sufficiently long time, diverge widely.
+
+This means that, even if we have a simple model in which
+
+all the parameters are determined exactly,
+
+long-term prediction is nevertheless impossible."
+
+And that's a nice echo of Poincare's "Prediction becomes impossible" quotation.
+
+This is yet another representation of the dynamics of the logistic map
+
+This is a bifurcation diagram and here's what it shows.
+
+On the horizontal axis, it shows R
+
+and we looked at the logistic map's behavior for several of these values,
+
+on the vertical axis, it shows x -- that is the attractor that is reached by the system given a particular value of R.
+
+For example, when we set R to 2.8 and iterated the logistic map until it reached the attractor,
+
+we found that the value that it reached was a little bit more than six.
+
+Sorry point six.
+
+We also see that at certain values of R,
+
+the dynamic changes abruptly. For example,
+
+near R = 3, the dynamic changes from being a fixed point to
+
+a period two attractor. And then as we raise R, we still get
+
+a period two attractor, but just with different values in the
+
+attractor.
+
+Similarly, near R = 3.4, you see a shift from period two to period four.
+
+That's what these four values represent.
+
+And then to period eight.
+
+You see this branching structure until finally,
+
+somewhere near R = 3.55, the dynamics stop being periodic and become chaotic.
+
+This value of R (and I'll tell you what it is a little bit later)
+
+is called "the onset of chaos."
+
+So we've seen in this subunit
+
+how the logistic maps works
+
+and how it exhibits what's called "a period doubling route to chaos."
+
+In the next subunit, we'll see something surprising
+
+about the specifics of this period doubling route.
+
+And see that, even though chaotic systems like the logistic map
+
+are not predictable in detail, there are certain universal properties that they all have.
