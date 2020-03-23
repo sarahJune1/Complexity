@@ -1,13 +1,40 @@
 breed [bunnies bunny]
 globals [last-count]
 
-Bunnies-own [old]
+Bunnies-own [old energy]
 
 to setup
   ca
   let one-patch (patch-set patch 0 0)
   ask one-patch [sprout-bunnies initial-population [set old false set shape "bunny2" set color white set size 4 disperse]]
+  setup-patches
 end
+
+to setup-patches
+  ask patches [set pcolor green]
+end
+
+to eat-grass
+  ask turtles [
+    if pcolor = green [
+      set pcolor black
+      set energy energy + 10
+    ]
+  ]
+end
+
+to check-death
+  ask bunnies [
+    if energy <= 0 [die]
+  ]
+end
+
+to regrow-grass
+  ask patches [
+    if random 100 < 3 [ set pcolor green]
+  ]
+end
+
 
 to reproduce
   if (count bunnies) > 0
@@ -17,6 +44,9 @@ to reproduce
     ask one-of bunnies [ hatch-bunnies how-many-to-hatch  [ disperse ] ]  ;Ok, Not too realistic to have one bunny do all the reproductive work ... but easier to code.
     ask bunnies with [old] [die]
     do-plotting
+    eat-grass
+    ask bunnies [check-death]
+    regrow-grass
   ]
 end
 
@@ -35,6 +65,7 @@ to disperse
   ifelse (x-sign = 0) [set  xcor 0 - new-x] [set xcor new-x]
   ifelse (y-sign = 0) [set ycor 0 - new-y] [set ycor new-y]
   set old false
+  set energy energy - 1
 end
 
 to do-plotting
@@ -43,6 +74,9 @@ to do-plotting
 
   set-current-plot "This year's pop. vs. last year's pop."
   plotxy last-count count bunnies
+
+  set-current-plot "Population vs. Grass"
+  plot count patches with [pcolor = green]
 
 end
 @#$#@#$#@
@@ -155,7 +189,7 @@ birthrate
 birthrate
 0
 5.0
-2.0
+2.8
 0.1
 1
 NIL
@@ -203,7 +237,7 @@ initial-population
 initial-population
 0
 20
-1.0
+8.0
 1
 1
 NIL
@@ -268,11 +302,41 @@ deathrate
 deathrate
 0
 5.0
-0.0
+0.5
 0.1
 1
 NIL
 HORIZONTAL
+
+MONITOR
+42
+445
+151
+490
+Count Grass Left
+count patches with [pcolor = green]
+17
+1
+11
+
+PLOT
+778
+355
+978
+505
+Population vs. Grass
+population
+grass
+0.0
+1000.0
+0.0
+2000.0
+true
+false
+"" ""
+PENS
+"bunnies" 1.0 0 -16777216 true "" "plot count turtles"
+"grass" 1.0 0 -13840069 true "" "plot count patches with [pcolor = green]"
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -308,7 +372,6 @@ If you use this model, please cite it as: "Logistic Population Growth" model, Co
 Copyright 2013 Santa Fe Institute.
 
 This model is licensed by the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 License ( http://creativecommons.org/licenses/by-nc-nd/3.0/ ). This states that you may copy, distribute, and transmit the work under the condition that you give attribution to ComplexityExplorer.org, and your use is for non-commercial purposes.
-
 @#$#@#$#@
 default
 true
