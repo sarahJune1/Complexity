@@ -1,17 +1,32 @@
 #!/usr/bin/env python
 # Sarah June March 28, 2020
+"""
+Calculate length of Koch Curve
+Input: 
+    Initial length of curve
+    Iteration level
+Output:
+    Lenth of Koch Curve at iteration level
+"""
 
 
 from fractions import Fraction
+import sys
+
+if not len(sys.argv) == 3:
+    print('''INPUT USAGE:
+    $python KochCurve.py <Segment_Length> <Iteration> ''')
+    sys.exit()
 
 
 # What is the curve length of the Koch Curve at each step interval?
 
 ### Rule of Koch Curve:
 
-# Take the segment, remove the middle third. Where the segment was cut add a segment 1/3 length of initial segment rotated at 60 degree angle.
+# Take the segment, remove the middle third. 
+# For each cut segment add a new segment 1/3 length and rotate at 60 degree angle
 
-L = 1
+L, Iteration_Level = sys.argv[1:]
 
 
 def input_segs(iteration):
@@ -38,7 +53,7 @@ def KochCurveLength(L, iteration):
     Count number of Segments at each interval following the rule
     Output curve length
     """
-    print(f"Iteration #{iteration}")
+    print(f"Steps Taken: {iteration}")
     num_segs, seg_len = input_segs(iteration)
     print(f"Number of Segments: {num_segs}")
     print(f"Length of Segments: {seg_len}")
@@ -48,16 +63,5 @@ def KochCurveLength(L, iteration):
     return print(f"Curve Length: {Fraction(L).limit_denominator()}")
 
 
-KochCurveLength(L,0)
+KochCurveLength(float(L),float(Iteration_Level))
 
-
-
-KochCurveLength(L,1)
-
-
-for i in range(10):
-    KochCurveLength(L,i)
-    print("")
-
-
-KochCurveLength(L,22)
