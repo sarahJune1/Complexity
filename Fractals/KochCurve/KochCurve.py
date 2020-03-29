@@ -24,7 +24,7 @@ if not len(sys.argv) == 3:
 ### Rule of Koch Curve:
 
 # Take the segment, remove the middle third. 
-# For each cut segment add a new segment 1/3 length and rotate at 60 degree angle
+# Replace the removed segment with a new segment at 1/3 degree angle and length
 
 L, Iteration_Level = sys.argv[1:]
 
