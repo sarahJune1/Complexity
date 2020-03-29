@@ -1,1 +1,13 @@
-theme: jekyll-theme-dinky
+title: Introuduction to Complexity - Models & Simulations
+author: Sarah June
+email: sarahjuneoriginal@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Netlogo Simulations and other Complexity Fun
+
+# social links
+twitter_username: sarah_june42 # DO NOT include the @ character, or else the build will fail!
+github_username:  sarahJune1 # DO NOT include the @ character, or else the build will fail!
+
+show_excerpts: true # set to false to remove excerpts on the homepage
+
+theme: minima
